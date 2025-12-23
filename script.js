@@ -360,3 +360,165 @@ window.addEventListener('load', () => {
         }, 500);
     }
 });
+
+// ===================================
+// CLASS SCHEDULE TAB FUNCTIONALITY
+// ===================================
+
+const scheduleTabs = document.querySelectorAll('.schedule-tab');
+const scheduleDays = document.querySelectorAll('.schedule-day');
+
+scheduleTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetDay = tab.getAttribute('data-day');
+        
+        // Remove active class from all tabs and days
+        scheduleTabs.forEach(t => t.classList.remove('active'));
+        scheduleDays.forEach(d => d.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding day
+        tab.classList.add('active');
+        document.querySelector(`.schedule-day[data-day="${targetDay}"]`).classList.add('active');
+    });
+});
+
+// ===================================
+// FAQ ACCORDION FUNCTIONALITY
+// ===================================
+
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    });
+});
+
+// ===================================
+// STATS COUNTER ANIMATION
+// ===================================
+
+const statNumbers = document.querySelectorAll('.stat-number');
+
+const animateStats = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    entry.target.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    entry.target.textContent = target;
+                    if (entry.target.parentElement.querySelector('p').textContent.includes('Rate')) {
+                        entry.target.textContent += '%';
+                    } else if (target >= 1000) {
+                        entry.target.textContent = (target / 1000).toFixed(1) + 'K+';
+                    } else {
+                        entry.target.textContent = target + '+';
+                    }
+                }
+            };
+            
+            updateCounter();
+            observer.unobserve(entry.target);
+        }
+    });
+};
+
+const statsObserver = new IntersectionObserver(animateStats, {
+    threshold: 0.5
+});
+
+statNumbers.forEach(stat => {
+    statsObserver.observe(stat);
+});
+
+// ===================================
+// GALLERY LIGHTBOX (SIMPLE VERSION)
+// ===================================
+
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Add subtle scale animation on click
+        item.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            item.style.transform = 'scale(1.05)';
+        }, 150);
+    });
+});
+
+// ===================================
+// TESTIMONIAL SLIDER AUTO-ROTATE (OPTIONAL)
+// ===================================
+
+let testimonialIndex = 0;
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+function rotateTestimonials() {
+    if (testimonialCards.length > 0) {
+        testimonialCards.forEach((card, index) => {
+            if (index === testimonialIndex) {
+                card.style.transform = 'scale(1.05)';
+                card.style.boxShadow = '0 20px 60px rgba(184, 212, 192, 0.5)';
+            } else {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+        
+        testimonialIndex = (testimonialIndex + 1) % testimonialCards.length;
+    }
+}
+
+// Auto-rotate every 5 seconds
+setInterval(rotateTestimonials, 5000);
+
+// ===================================
+// SMOOTH SERVICE CARD REVEALS
+// ===================================
+
+const serviceCards = document.querySelectorAll('.service-card');
+
+serviceCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    observer.observe(card);
+});
+
+// ===================================
+// ENHANCED MOBILE MENU FOR MORE LINKS
+// ===================================
+
+const mobileMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Close menu when clicking on a link (mobile)
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 968) {
+            mobileMenu.classList.remove('active');
+            document.querySelector('.mobile-menu-toggle').classList.remove('active');
+        }
+    });
+});
+
