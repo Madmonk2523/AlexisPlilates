@@ -13,7 +13,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             const navHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navHeight;
+            const targetPosition = target.offsetTop - navHeight - 20;
             
             window.scrollTo({
                 top: targetPosition,
@@ -34,7 +34,7 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link:not(.instagram-link)');
 
 function updateActiveNav() {
-    const scrollPosition = window.scrollY + 100;
+    const scrollPosition = window.scrollY + 150;
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -119,18 +119,10 @@ animateElements.forEach((el, index) => {
 });
 
 // ===================================
-// PARALLAX EFFECT
+// PARALLAX EFFECT - DISABLED FOR SMOOTHER SCROLL
 // ===================================
 
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.hero-content');
-    
-    parallaxElements.forEach(element => {
-        const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
+// Parallax removed for better scroll performance
 
 // ===================================
 // SMOOTH PAGE LOAD
