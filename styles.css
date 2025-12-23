@@ -132,7 +132,7 @@ section {
 }
 
 .logo {
-    height: 60px;
+    height: 80px;
     width: auto;
     transition: var(--transition-fast);
 }
