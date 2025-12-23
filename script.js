@@ -362,27 +362,6 @@ window.addEventListener('load', () => {
 });
 
 // ===================================
-// CLASS SCHEDULE TAB FUNCTIONALITY
-// ===================================
-
-const scheduleTabs = document.querySelectorAll('.schedule-tab');
-const scheduleDays = document.querySelectorAll('.schedule-day');
-
-scheduleTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const targetDay = tab.getAttribute('data-day');
-        
-        // Remove active class from all tabs and days
-        scheduleTabs.forEach(t => t.classList.remove('active'));
-        scheduleDays.forEach(d => d.classList.remove('active'));
-        
-        // Add active class to clicked tab and corresponding day
-        tab.classList.add('active');
-        document.querySelector(`.schedule-day[data-day="${targetDay}"]`).classList.add('active');
-    });
-});
-
-// ===================================
 // FAQ ACCORDION FUNCTIONALITY
 // ===================================
 
@@ -403,51 +382,6 @@ faqQuestions.forEach(question => {
             faqItem.classList.add('active');
         }
     });
-});
-
-// ===================================
-// STATS COUNTER ANIMATION
-// ===================================
-
-const statNumbers = document.querySelectorAll('.stat-number');
-
-const animateStats = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const target = parseInt(entry.target.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-            
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    entry.target.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    entry.target.textContent = target;
-                    if (entry.target.parentElement.querySelector('p').textContent.includes('Rate')) {
-                        entry.target.textContent += '%';
-                    } else if (target >= 1000) {
-                        entry.target.textContent = (target / 1000).toFixed(1) + 'K+';
-                    } else {
-                        entry.target.textContent = target + '+';
-                    }
-                }
-            };
-            
-            updateCounter();
-            observer.unobserve(entry.target);
-        }
-    });
-};
-
-const statsObserver = new IntersectionObserver(animateStats, {
-    threshold: 0.5
-});
-
-statNumbers.forEach(stat => {
-    statsObserver.observe(stat);
 });
 
 // ===================================
