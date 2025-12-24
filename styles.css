@@ -103,6 +103,10 @@ section {
     padding: var(--section-padding) 0;
 }
 
+.contact-section {
+    padding-bottom: 60px;
+}
+
 /* ===================================
    NAVIGATION BAR
    =================================== */
@@ -124,11 +128,12 @@ section {
     padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .logo-container {
     flex: 0 0 auto;
+    align-self: flex-start;
 }
 
 .logo {
@@ -716,17 +721,18 @@ section {
    FOOTER
    =================================== */
 .footer {
-    background: var(--text-dark);
+    background: linear-gradient(135deg, #1f2a36 0%, #2d3748 100%);
     color: var(--white);
-    padding: 3rem 0 1.5rem;
+    padding: 2.5rem 0 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer-brand {
@@ -749,8 +755,8 @@ section {
 
 .footer-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
 }
 
 .footer-column h4 {
@@ -807,7 +813,7 @@ section {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1.25rem;
 }
 
 .footer-bottom p {
