@@ -120,12 +120,13 @@ section {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     z-index: 1000;
     transition: var(--transition-smooth);
+    padding: 0;
 }
 
 .nav-container {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0.15rem 1.25rem 0.3rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -134,14 +135,17 @@ section {
 .logo-container {
     flex: 0 0 auto;
     align-self: flex-start;
-    margin-top: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .logo {
     height: 120px;
     width: auto;
     transition: var(--transition-fast);
-    margin-top: 0;
+    padding: 0;
+    margin: 0;
+    display: block;
 }
 
 .logo:hover {
@@ -153,6 +157,8 @@ section {
     list-style: none;
     gap: 2.5rem;
     align-items: center;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
 }
 
 .nav-link {
