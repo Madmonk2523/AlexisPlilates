@@ -159,21 +159,24 @@ section {
     gap: 2.5rem;
     align-items: center;
     padding-right: 2rem;
-    padding-top: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 500;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0.5rem;
     transition: var(--transition-fast);
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .nav-link::after {
