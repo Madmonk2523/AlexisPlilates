@@ -126,10 +126,11 @@ section {
 .nav-container {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 3rem;
 }
 
 .logo-container {
