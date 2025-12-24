@@ -39,7 +39,7 @@ A beautiful, zen-inspired website for Modern Fit Pilates, founded by Alexis Inte
 - `index.html` - Main HTML structure
 - `styles.css` - Complete styling with animations
 - `script.js` - Interactive JavaScript functionality
-- `logo.jpg` - Modern Fit Pilates logo
+- `logo.png` - Modern Fit Pilates logo
 - `README.md` - This file
 
 ## Content Placeholders
