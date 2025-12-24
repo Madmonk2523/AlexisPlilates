@@ -3,6 +3,39 @@
 // ===================================
 
 // ===================================
+// DEBUG INSTRUMENTATION
+// ===================================
+// Toggle debug via `?debug=1` or localStorage key `mfp-debug` = '1'
+const MFP_DEBUG = new URLSearchParams(window.location.search).has('debug') || localStorage.getItem('mfp-debug') === '1';
+
+function debugLog() {
+    if (!MFP_DEBUG) return;
+    const args = Array.from(arguments);
+    console.debug('[MFP]', ...args);
+}
+
+// Expose simple debug API
+window.mfpDebug = {
+    enable() { localStorage.setItem('mfp-debug', '1'); debugLog('Debug enabled'); },
+    disable() { localStorage.removeItem('mfp-debug'); console.debug('[MFP] Debug disabled'); },
+    log: debugLog,
+    mark(name) { if (MFP_DEBUG && performance.mark) performance.mark(name); },
+    measure(name, start, end) {
+        if (MFP_DEBUG && performance.measure) {
+            try { performance.measure(name, start, end); } catch {}
+        }
+    }
+};
+
+debugLog('JavaScript initialized');
+window.addEventListener('error', (e) => {
+    if (MFP_DEBUG) console.error('[MFP] Error:', e.message, e.filename, e.lineno);
+});
+window.addEventListener('unhandledrejection', (e) => {
+    if (MFP_DEBUG) console.error('[MFP] Unhandled rejection:', e.reason);
+});
+
+// ===================================
 // NAVIGATION FUNCTIONALITY
 // ===================================
 
@@ -12,6 +45,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
+            debugLog('Nav click to', this.getAttribute('href'));
             const navHeight = document.querySelector('.navbar').offsetHeight;
             const targetPosition = target.offsetTop - navHeight - 20;
             
@@ -68,6 +102,7 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
+    debugLog('Scroll', currentScroll);
 });
 
 // Mobile menu toggle
@@ -102,6 +137,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            debugLog('Reveal', entry.target.className || entry.target.tagName);
         }
     });
 }, observerOptions);
@@ -129,10 +165,13 @@ animateElements.forEach((el, index) => {
 // ===================================
 
 window.addEventListener('load', () => {
+    window.mfpDebug?.mark('page-load-start');
     document.body.style.opacity = '0';
     setTimeout(() => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
+        window.mfpDebug?.mark('page-fade-in');
+        window.mfpDebug?.measure('fade-in-duration', 'page-load-start', 'page-fade-in');
     }, 100);
 });
 
@@ -427,17 +466,9 @@ function rotateTestimonials() {
 setInterval(rotateTestimonials, 5000);
 
 // ===================================
-// SMOOTH SERVICE CARD REVEALS
+// SERVICES REMOVED
 // ===================================
-
-const serviceCards = document.querySelectorAll('.service-card');
-
-serviceCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
-});
+// Services section and related animations removed per request
 
 // ===================================
 // ENHANCED MOBILE MENU FOR MORE LINKS

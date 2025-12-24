@@ -22,7 +22,6 @@ A beautiful, zen-inspired website for Modern Fit Pilates, founded by Alexis Inte
 - Mobile-responsive hamburger menu
 - Scroll animations and fade-in effects
 - Hover effects on cards and buttons
-- Parallax scrolling on hero section
 - Scroll-to-top button
 - Button ripple effects
 
@@ -90,6 +89,15 @@ The following sections have placeholders ready for content:
 - Optimized for performance with debounced scroll events
 - Cross-browser compatible
 - Mobile-first responsive design
+
+## Debugging
+
+- Enable debug logs by adding `?debug=1` to the site URL or setting `localStorage` key `mfp-debug` to `'1'`.
+- Use `window.mfpDebug` in the browser console:
+   - `window.mfpDebug.enable()` / `window.mfpDebug.disable()`
+   - `window.mfpDebug.log('message')` to log with the `[MFP]` prefix
+   - `window.mfpDebug.mark('name')` and `window.mfpDebug.measure('name', 'start', 'end')` to record simple performance timings
+   - Errors and unhandled promise rejections are logged when debug is enabled.
 
 ## Browser Support
 
