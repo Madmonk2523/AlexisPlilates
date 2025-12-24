@@ -92,6 +92,16 @@ The following sections have placeholders ready for content:
 
 ## Debugging
 
+- Enable console debug: append `?debug=1` to the URL (e.g., `index.html?debug=1`), or run `localStorage.setItem('mfp-debug', '1')` in the console and refresh.
+- Disable: `localStorage.removeItem('mfp-debug')` or call `window.mfpDebug.disable()`.
+- Debug API:
+   - `window.mfpDebug.enable()` / `window.mfpDebug.disable()`
+   - `window.mfpDebug.log('message', data)`
+   - `window.mfpDebug.mark('name')` and `window.mfpDebug.measure('name','start','end')`
+- Instrumented events: navigation clicks, section reveal animations, scroll position, load fade-in performance marks, and error/rejection handlers.
+
+## Debugging
+
 - Enable debug logs by adding `?debug=1` to the site URL or setting `localStorage` key `mfp-debug` to `'1'`.
 - Use `window.mfpDebug` in the browser console:
    - `window.mfpDebug.enable()` / `window.mfpDebug.disable()`

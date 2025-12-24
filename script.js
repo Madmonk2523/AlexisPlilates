@@ -165,13 +165,19 @@ animateElements.forEach((el, index) => {
 // ===================================
 
 window.addEventListener('load', () => {
-    window.mfpDebug?.mark('page-load-start');
+    if (window.mfpDebug && typeof window.mfpDebug.mark === 'function') {
+        window.mfpDebug.mark('page-load-start');
+    }
     document.body.style.opacity = '0';
     setTimeout(() => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
-        window.mfpDebug?.mark('page-fade-in');
-        window.mfpDebug?.measure('fade-in-duration', 'page-load-start', 'page-fade-in');
+        if (window.mfpDebug && typeof window.mfpDebug.mark === 'function') {
+            window.mfpDebug.mark('page-fade-in');
+        }
+        if (window.mfpDebug && typeof window.mfpDebug.measure === 'function') {
+            window.mfpDebug.measure('fade-in-duration', 'page-load-start', 'page-fade-in');
+        }
     }, 100);
 });
 
@@ -475,10 +481,10 @@ setInterval(rotateTestimonials, 5000);
 // ===================================
 
 const mobileMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinksAll = document.querySelectorAll('.nav-link');
 
 // Close menu when clicking on a link (mobile)
-navLinks.forEach(link => {
+navLinksAll.forEach(link => {
     link.addEventListener('click', () => {
         if (window.innerWidth <= 968) {
             mobileMenu.classList.remove('active');
