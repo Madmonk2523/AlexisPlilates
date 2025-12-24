@@ -125,7 +125,7 @@ section {
 .nav-container {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0.5rem 2rem;
+    padding: 0.15rem 1.25rem 0.3rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -134,12 +134,14 @@ section {
 .logo-container {
     flex: 0 0 auto;
     align-self: flex-start;
+    margin-top: 0;
 }
 
 .logo {
     height: 120px;
     width: auto;
     transition: var(--transition-fast);
+    margin-top: 0;
 }
 
 .logo:hover {
