@@ -381,10 +381,10 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Focus management for mobile menu
+// Focus management for mobile menu (focus first link after open)
 mobileMenuToggle.addEventListener('click', () => {
     if (navMenu.classList.contains('active')) {
-        navMenu.querySelector('.nav-link').focus();
+        setTimeout(() => navMenu.querySelector('.nav-link').focus(), 50);
     }
 });
 

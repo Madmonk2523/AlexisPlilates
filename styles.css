@@ -226,6 +226,21 @@ section {
     background: var(--text-dark);
     border-radius: 3px;
     transition: var(--transition-smooth);
+    transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ===================================
@@ -854,18 +869,28 @@ section {
     :root {
         --section-padding: 70px;
     }
+
+    .logo {
+        height: 80px;
+    }
     
     .nav-menu {
         position: fixed;
         top: 80px;
         left: -100%;
         flex-direction: column;
-        background: var(--white);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         width: 100%;
         text-align: center;
         transition: var(--transition-smooth);
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 0 2rem;
+        z-index: 999;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        gap: 0.25rem;
     }
     
     .nav-menu.active {
@@ -933,7 +958,12 @@ section {
     }
     
     .logo {
-        height: 50px;
+        height: 56px;
+    }
+
+    .nav-menu {
+        top: 56px;
+        max-height: calc(100svh - 56px);
     }
     
     .section-header {
