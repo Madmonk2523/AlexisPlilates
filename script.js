@@ -446,30 +446,114 @@ galleryItems.forEach(item => {
 });
 
 // ===================================
-// TESTIMONIAL SLIDER AUTO-ROTATE (OPTIONAL)
+// TESTIMONIAL CAROUSEL
 // ===================================
 
-let testimonialIndex = 0;
-const testimonialCards = document.querySelectorAll('.testimonial-card');
+(function () {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const counterCurrent = document.querySelector('.counter-current');
+    const counterTotal = document.querySelector('.counter-total');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const viewport = document.querySelector('.carousel-viewport');
 
-function rotateTestimonials() {
-    if (testimonialCards.length > 0) {
-        testimonialCards.forEach((card, index) => {
-            if (index === testimonialIndex) {
-                card.style.transform = 'scale(1.05)';
-                card.style.boxShadow = '0 20px 60px rgba(184, 212, 192, 0.5)';
-            } else {
-                card.style.transform = 'scale(1)';
-                card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-            }
-        });
-        
-        testimonialIndex = (testimonialIndex + 1) % testimonialCards.length;
+    if (!track || slides.length === 0) return;
+
+    let currentIndex = 0;
+    const total = slides.length;
+    let autoPlayTimer = null;
+    let isDragging = false;
+    let startX = 0;
+    let dragDelta = 0;
+
+    // Update counter total
+    if (counterTotal) counterTotal.textContent = total;
+
+    // Generate dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        dot.setAttribute('aria-label', 'Go to review ' + (i + 1));
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => { goTo(i); resetAutoPlay(); });
+        dotsContainer.appendChild(dot);
+    });
+
+    function updateCarousel() {
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+        if (counterCurrent) counterCurrent.textContent = currentIndex + 1;
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
     }
-}
 
-// Auto-rotate every 5 seconds
-setInterval(rotateTestimonials, 5000);
+    function goTo(index) {
+        currentIndex = ((index % total) + total) % total;
+        updateCarousel();
+    }
+
+    function nextSlide() { goTo(currentIndex + 1); }
+    function prevSlide() { goTo(currentIndex - 1); }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+
+    // Auto-play
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(nextSlide, 6000);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayTimer);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // Pause on hover
+    if (viewport) {
+        viewport.addEventListener('mouseenter', stopAutoPlay);
+        viewport.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Touch / swipe support
+    track.addEventListener('touchstart', function (e) {
+        startX = e.touches[0].clientX;
+        isDragging = false;
+        stopAutoPlay();
+    }, { passive: true });
+
+    track.addEventListener('touchmove', function (e) {
+        dragDelta = e.touches[0].clientX - startX;
+        isDragging = Math.abs(dragDelta) > 8;
+    }, { passive: true });
+
+    track.addEventListener('touchend', function () {
+        if (isDragging) {
+            if (dragDelta < -50) nextSlide();
+            else if (dragDelta > 50) prevSlide();
+        }
+        isDragging = false;
+        dragDelta = 0;
+        startAutoPlay();
+    });
+
+    // Keyboard navigation when testimonials section is in view
+    document.addEventListener('keydown', function (e) {
+        const section = document.getElementById('testimonials');
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (!inView) return;
+        if (e.key === 'ArrowLeft') { prevSlide(); resetAutoPlay(); }
+        if (e.key === 'ArrowRight') { nextSlide(); resetAutoPlay(); }
+    });
+
+    startAutoPlay();
+})();
 
 // ===================================
 // SERVICES REMOVED
