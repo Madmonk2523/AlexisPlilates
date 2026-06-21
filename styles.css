@@ -419,6 +419,17 @@ section {
     box-shadow: 0 8px 25px rgba(212, 196, 232, 0.4);
 }
 
+.btn-always-hover {
+    background: var(--primary-purple);
+    color: var(--white);
+    box-shadow: 0 8px 25px rgba(212, 196, 232, 0.4);
+}
+
+.btn-always-hover:hover {
+    background: var(--primary-purple);
+    color: var(--white);
+}
+
 .btn-small {
     padding: 0.6rem 1.5rem;
     font-size: 0.9rem;
