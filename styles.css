@@ -470,8 +470,8 @@ section {
 .method-section {
     position: relative;
     background: linear-gradient(rgba(34, 37, 42, 0.62), rgba(34, 37, 42, 0.62)), url("method pic .jpeg");
-    background-size: contain;
-    background-position: center top;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
