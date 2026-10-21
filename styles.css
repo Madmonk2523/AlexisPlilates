@@ -252,7 +252,7 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(20, 28, 33, 0.48), rgba(20, 28, 33, 0.48)), url("Founder pic.jpeg");
+    background: linear-gradient(rgba(20, 28, 33, 0.48), rgba(20, 28, 33, 0.48));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -480,7 +480,7 @@ section {
 
 .method-section {
     position: relative;
-    background: linear-gradient(rgba(34, 37, 42, 0.62), rgba(34, 37, 42, 0.62)), url("method pic .jpeg");
+    background: linear-gradient(rgba(34, 37, 42, 0.62), rgba(34, 37, 42, 0.62)), url("pilates-method.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1082,7 +1082,7 @@ section {
    TESTIMONIALS SECTION
    =================================== */
 .testimonials-section {
-    background: linear-gradient(rgba(20, 29, 31, 0.62), rgba(20, 29, 31, 0.62)), url("testimonials .jpeg");
+    background: linear-gradient(rgba(20, 29, 31, 0.62), rgba(20, 29, 31, 0.62)), url("modern-fit-studio-2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1702,7 +1702,7 @@ p {
     min-height: min(850px, 100svh);
     height: 92svh;
     padding: 9rem 1.5rem 6rem;
-    background-image: url("Founder pic.jpeg");
+    background-image: none;
     background-position: center 43%;
     isolation: isolate;
 }
@@ -1712,6 +1712,27 @@ p {
     background:
         linear-gradient(90deg, rgba(22, 27, 23, 0.64) 0%, rgba(22, 27, 23, 0.31) 58%, rgba(22, 27, 23, 0.08) 100%),
         linear-gradient(0deg, rgba(22, 27, 23, 0.3), transparent 48%);
+}
+
+.hero-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 43%;
+}
+
+.section-background-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
 }
 
 .hero-overlay {
@@ -1874,13 +1895,16 @@ p {
     min-height: 620px;
     display: flex;
     align-items: center;
-    background:
-        linear-gradient(90deg, rgba(25, 31, 27, 0.76), rgba(25, 31, 27, 0.42)),
-        url("method pic .jpeg") center 44% / cover no-repeat;
+    background: linear-gradient(90deg, rgba(25, 31, 27, 0.76), rgba(25, 31, 27, 0.42));
+    overflow: hidden;
 }
 
 .method-section .container {
     width: min(100% - 3rem, 1100px);
+}
+
+.method-section .section-background-image {
+    object-position: center 44%;
 }
 
 .method-section .section-header {
@@ -2070,9 +2094,12 @@ p {
 }
 
 .testimonials-section {
-    background:
-        linear-gradient(rgba(30, 36, 31, 0.75), rgba(30, 36, 31, 0.78)),
-        url("testimonials .jpeg") center 52% / cover no-repeat;
+    background: linear-gradient(rgba(30, 36, 31, 0.75), rgba(30, 36, 31, 0.78));
+    overflow: hidden;
+}
+
+.testimonials-section .section-background-image {
+    object-position: center 52%;
 }
 
 .testimonials-section .section-tag {
@@ -2569,6 +2596,10 @@ p {
         background-position: 57% center;
     }
 
+    .hero-image {
+        object-position: 57% center;
+    }
+
     .hero::before {
         background:
             linear-gradient(90deg, rgba(22, 27, 23, 0.7), rgba(22, 27, 23, 0.22)),
@@ -2627,7 +2658,51 @@ p {
 
     .method-section {
         min-height: 0;
-        background-position: 58% center;
+    }
+
+    .method-section .section-background-image {
+        object-position: 58% center;
+    }
+
+    @media (max-width: 480px) {
+        .hero {
+            min-height: 640px;
+            height: auto;
+            padding: 6.5rem 1rem 5rem;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 14vw, 4.2rem);
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+        }
+
+        .hero-cta .btn {
+            width: 100%;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 210px;
+        }
+
+        .gallery-item.large {
+            grid-column: auto;
+        }
+
+        .carousel-counter {
+            letter-spacing: 0.08em;
+        }
+    }
+
+    .testimonials-section .section-background-image {
+        object-position: 56% center;
     }
 
     .method-section .container {

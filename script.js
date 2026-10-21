@@ -139,79 +139,6 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 // ===================================
 
 // ===================================
-// BUTTON RIPPLE EFFECT
-// ===================================
-
-const buttons = document.querySelectorAll('.btn');
-
-buttons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
-
-// Add ripple CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
-    .btn {
-        position: relative;
-        overflow: hidden;
-    }
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: ripple-animation 0.6s ease-out;
-        pointer-events: none;
-    }
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// ===================================
-// LAZY LOADING IMAGES
-// ===================================
-
-// When real images are added, this will handle lazy loading
-const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.classList.add('fade-in');
-                observer.unobserve(img);
-            }
-        }
-    });
-});
-
-document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-});
-
-// ===================================
 // SCROLL TO TOP BUTTON (Optional Enhancement)
 // ===================================
 
@@ -234,30 +161,8 @@ scrollTopBtn.addEventListener('click', () => {
 });
 
 // ===================================
-// CONTACT CARD HOVER EFFECTS
-// ===================================
-
-const contactCards = document.querySelectorAll('.contact-card');
-
-contactCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        const icon = this.querySelector('.contact-icon');
-        icon.style.transform = 'rotate(360deg) scale(1.1)';
-        icon.style.transition = 'transform 0.6s ease';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        const icon = this.querySelector('.contact-icon');
-        icon.style.transform = 'rotate(0deg) scale(1)';
-    });
-});
-
-// ===================================
 // LOADING COMPLETION
 // ===================================
-
-console.log('🧘‍♀️ Modern Fit Pilates - Website Loaded Successfully');
-console.log('✨ Created with care by Digital Web Services');
 
 // Remove preloader if exists
 window.addEventListener('load', () => {
@@ -324,6 +229,9 @@ faqQuestions.forEach(question => {
     let isDragging = false;
     let startX = 0;
     let dragDelta = 0;
+    let isVisible = false;
+    let isInteracting = false;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Update counter total
     if (counterTotal) counterTotal.textContent = total;
@@ -356,31 +264,58 @@ faqQuestions.forEach(question => {
     if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
 
-    // Auto-play
-    function startAutoPlay() {
-        autoPlayTimer = setInterval(nextSlide, 6000);
-    }
-
-    function stopAutoPlay() {
-        clearInterval(autoPlayTimer);
+    function updateAutoPlay() {
+        const shouldPlay = isVisible && !isInteracting && !document.hidden && !reducedMotion;
+        if (shouldPlay && !autoPlayTimer) {
+            autoPlayTimer = setInterval(nextSlide, 6000);
+        } else if (!shouldPlay && autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+        }
     }
 
     function resetAutoPlay() {
-        stopAutoPlay();
-        startAutoPlay();
+        if (autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+        }
+        updateAutoPlay();
     }
 
-    // Pause on hover
-    if (viewport) {
-        viewport.addEventListener('mouseenter', stopAutoPlay);
-        viewport.addEventListener('mouseleave', startAutoPlay);
+    if (viewport && 'IntersectionObserver' in window) {
+        const carouselObserver = new IntersectionObserver(([entry]) => {
+            isVisible = entry.isIntersecting;
+            updateAutoPlay();
+        }, { threshold: 0.15 });
+        carouselObserver.observe(viewport);
+
+        viewport.addEventListener('mouseenter', () => {
+            isInteracting = true;
+            updateAutoPlay();
+        });
+        viewport.addEventListener('mouseleave', () => {
+            isInteracting = false;
+            updateAutoPlay();
+        });
+        viewport.addEventListener('focusin', () => {
+            isInteracting = true;
+            updateAutoPlay();
+        });
+        viewport.addEventListener('focusout', event => {
+            if (!viewport.contains(event.relatedTarget)) {
+                isInteracting = false;
+                updateAutoPlay();
+            }
+        });
+        document.addEventListener('visibilitychange', updateAutoPlay);
     }
 
     // Touch / swipe support
     track.addEventListener('touchstart', function (e) {
         startX = e.touches[0].clientX;
         isDragging = false;
-        stopAutoPlay();
+        isInteracting = true;
+        updateAutoPlay();
     }, { passive: true });
 
     track.addEventListener('touchmove', function (e) {
@@ -395,7 +330,8 @@ faqQuestions.forEach(question => {
         }
         isDragging = false;
         dragDelta = 0;
-        startAutoPlay();
+        isInteracting = false;
+        updateAutoPlay();
     });
 
     // Keyboard navigation when testimonials section is in view
@@ -409,7 +345,7 @@ faqQuestions.forEach(question => {
         if (e.key === 'ArrowRight') { nextSlide(); resetAutoPlay(); }
     });
 
-    startAutoPlay();
+    updateAutoPlay();
 })();
 
 // ===================================
