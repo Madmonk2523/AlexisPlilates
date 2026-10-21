@@ -5,25 +5,27 @@ A beautiful, zen-inspired website for Modern Fit Pilates, founded by Alexis Inte
 ## Website Features
 
 ### Design
-- **Color Scheme**: Light green (#b8d4c0), light purple (#d4c4e8), and white
-- **Tone**: Zen, calm, inviting, creative, and energetic
+- **Color Scheme**: Warm white, muted sage, and soft earth tones
+- **Tone**: Calm, editorial, welcoming, and athletic
 - **Typography**: Cormorant Garamond (headings) and Montserrat (body)
-- **Fully Responsive**: Mobile, tablet, and desktop optimized
+- **Fully Responsive**: Mobile, tablet, and desktop layouts with a compact mobile menu
+- **Motion**: Subtle scroll reveals and image transitions, with reduced-motion support
 
 ### Sections
-1. **Home/Hero** - Eye-catching landing section with call-to-action buttons
-2. **Our Story** - Space for Alexis's story, philosophy, and business approach
-3. **Instructors** - Featured section for Alexis (founder) + 3 additional instructors
-4. **Contact** - Location info, booking via Glofox app, Instagram link, and embedded map
+1. **Home** - Studio introduction and clear paths to pricing and instructors
+2. **Our Method** - Athletic Pilates philosophy and small-class approach
+3. **Founder and Instructors** - Alexis, Elizabeth, Kaylah, and Teresa
+4. **Client Reviews** - Testimonial carousel
+5. **Studio Gallery** - Studio and team photography
+6. **FAQ and Pricing** - Visit information, class packages, and private training rates
+7. **Contact** - Location, Glofox booking guidance, Instagram, and embedded map
 
 ### Interactive Features
-- Smooth scrolling navigation
-- Active nav link highlighting
-- Mobile-responsive hamburger menu
-- Scroll animations and fade-in effects
-- Hover effects on cards and buttons
-- Scroll-to-top button
-- Button ripple effects
+- Smooth anchor navigation and active-section highlighting
+- Accessible, keyboard-operable mobile navigation and FAQ accordion
+- Reduced-motion-aware scroll reveals and image hover transitions
+- Testimonial carousel with touch controls
+- Scroll-to-top control
 
 ## Business Information
 
@@ -42,44 +44,18 @@ A beautiful, zen-inspired website for Modern Fit Pilates, founded by Alexis Inte
 - `logo.png` - Modern Fit Pilates logo
 - `README.md` - This file
 
-## Content Placeholders
-
-The following sections have placeholders ready for content:
-
-### Story Section
-- Main story/philosophy text
-- Business approach description
-- Teaching methodology
-
-### Instructor Bios
-- **Alexis Interdonato** (Founder) - Bio, journey, qualifications
-- **Instructor 2** - Name, title, bio
-- **Instructor 3** - Name, title, bio
-- **Instructor 4** - Name, title, bio
-
-### Images Needed
-- Hero background image (optional - currently using gradient)
-- Story section image (studio/Alexis)
-- Alexis headshot/portrait
-- 3 additional instructor photos
-
 ## How to Use
 
 1. Open `index.html` in a web browser to view the site
-2. All files must be in the same folder along with `logo.jpg`
-3. Add instructor photos and studio images as they become available
+2. Keep the site files and image assets in the same folder
+3. Update `index.html` when instructor details, pricing, or studio information changes
 4. Replace placeholder text with actual bios and story content
 
 ## Next Steps
 
-1. **Add Content**: Replace placeholder text with actual story, bios, and descriptions
-2. **Add Images**: 
-   - Studio/practice images for the Story section
-   - Professional headshots for all instructors
-   - Optional: Hero background image
-3. **Test Booking Integration**: Ensure Glofox app link works correctly
-4. **SEO Optimization**: Add meta descriptions, keywords, and Open Graph tags
-5. **Domain Setup**: When ready to go live
+1. **Booking Integration**: Add the studio's direct Glofox booking URL when available
+2. **SEO**: Add Open Graph metadata and verify search previews
+3. **Domain Setup**: Configure the production domain when ready to go live
 
 ## Technical Notes
 

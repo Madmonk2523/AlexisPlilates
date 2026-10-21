@@ -1,38 +1,39 @@
-r
-|<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Fit Pilates | Alexis Interdonato | Pilates Studio Long Island</title>
-    <meta name="description" content="Modern Fit Pilates - BASI Certified Pilates Instruction & Nutrition Coaching in Greenvale, NY. Join Alexis Interdonato and our expert instructors for transformative wellness.">
+    <meta name="description" content="Discover athletic, small-group reformer and mat Pilates at Modern Fit Pilates in Greenvale, NY. Meet the instructors and explore class pricing.">
+    <meta name="theme-color" content="#f7f5ef">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo-container">
-                <img src="logo.png" alt="Modern Fit Pilates Logo" class="logo">
+                <a href="#home" aria-label="Modern Fit Pilates home">
+                    <img src="logo.png" alt="Modern Fit Pilates" class="logo">
+                </a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#method" class="nav-link">METHOD</a></li>
-                <li><a href="#story" class="nav-link">FOUNDER</a></li>
-                <li><a href="#instructors" class="nav-link">Instructors</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="https://www.instagram.com/modernfitpilates/" target="_blank" class="nav-link instagram-link" aria-label="Instagram">
+            <ul class="nav-menu" id="primary-navigation">
+                <li><a href="#method" class="nav-link">Our method</a></li>
+                <li><a href="#instructors" class="nav-link">Our team</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#gallery" class="nav-link">The studio</a></li>
+                <li><a href="#contact" class="nav-link">Find us</a></li>
+                <li><a href="#pricing" class="nav-link nav-booking">View pricing</a></li>
+                <li><a href="https://www.instagram.com/modernfitpilates/" target="_blank" rel="noopener noreferrer" class="nav-link instagram-link" aria-label="Modern Fit Pilates on Instagram">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
                     </svg>
@@ -42,27 +43,30 @@ r
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Modern Fit Pilates</h1>
-            <p class="hero-subtitle">Fit Body, Fit Mind</p>
+            <p class="hero-kicker">A stronger way to move</p>
+            <h1 class="hero-title">Find your strength.<br><em>Feel the difference.</em></h1>
+            <p class="hero-subtitle">Athletic, intentional Pilates in Greenvale, New York.</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">Begin Your Practice</a>
-                <a href="#story" class="btn btn-secondary btn-always-hover">Learn More</a>
+                <a href="#pricing" class="btn btn-primary">Explore class pricing</a>
+                <a href="#instructors" class="btn btn-secondary btn-always-hover">Meet your instructors</a>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <a href="#method" class="scroll-indicator" aria-label="Scroll to discover our method">
             <div class="scroll-arrow"></div>
-        </div>
+        </a>
     </section>
 
     <!-- Method Section -->
     <section id="method" class="story-section method-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">METHOD</span>
-                <h2 class="section-title">METHOD</h2>
+                <span class="section-tag">Our method</span>
+                <h2 class="section-title">Intentional movement.<br>Real strength.</h2>
+                <p class="section-subtitle">Classical Pilates foundations, shaped for the way you want to feel and move.</p>
             </div>
             <div class="story-content">
                 <div class="story-text">
@@ -78,15 +82,15 @@ r
     <section id="story" class="story-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">FOUNDER</span>
-                <h2 class="section-title">FOUNDER</h2>
+                <span class="section-tag">The founder</span>
+                <h2 class="section-title">A love of movement,<br>made personal.</h2>
             </div>
             <div class="story-content">
                 <div class="story-text">
-                    <p>My journey with reformer Pilates began in California, where I quickly fell in love with the method's dynamic and creative nature. Inspired by its endless variations and the ability to do so much on a single apparatus, I pursued my certification and became a Pilates teacher.</p>
-                    <p>With a background as a competitive figure skater, I developed an early appreciation for movement, discipline, and body awareness. My passion for fitness evolved into a love for refined, intentional movement-ultimately leading me to Pilates and its addictive practice. I truly love what I do and haven't found anything quite like it!</p>
-                    <p>Founder and instructor Alexis has been passionate about movement since childhood as a competitive figure skater. Her love of fitness and body awareness eventually led her to Pilates, where she found the perfect balance of strength, control, and challenge.</p>
-                    <p>Her classes are known for delivering a serious workout through smart, intentional movement-helping clients build strength, find their edge, and move with confidence.</p>
+                    <p class="story-intro">“I want every class to leave you feeling stronger, more connected, and proud of what your body can do.”</p>
+                    <p>Alexis' love of movement began as a competitive figure skater. A lifelong interest in fitness and body awareness eventually led her to reformer Pilates, where she found an exciting balance of strength, control, and creativity.</p>
+                    <p>Today, she brings that same energy to Modern Fit Pilates: thoughtful, athletic classes that challenge you to find your edge while moving with intention and confidence.</p>
+                    <a href="#instructors" class="text-link">Get to know the team <span aria-hidden="true">→</span></a>
                 </div>
                 <div class="story-image">
                     <img src="Founder pic.jpeg" alt="Alexis Interdonato in the studio">
@@ -102,7 +106,7 @@ r
             <div class="section-header">
                 <span class="section-tag">Meet Our Team</span>
                 <h2 class="section-title">Expert Instructors</h2>
-                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</p>
+                <p class="section-subtitle">Meet the thoughtful, experienced instructors who make every class personal.</p>
             </div>
             <div class="instructors-grid">
                 <!-- Alexis - Founder -->
@@ -141,13 +145,27 @@ r
                     </div>
                 </div>
 
+                <!-- Instructor 4 -->
+                <div class="instructor-card">
+                    <div class="instructor-image">
+                        <img src="Kayla Grooper pic.jpeg" alt="Kaylah Grooper instructor portrait">
+                    </div>
+                    <div class="instructor-info">
+                        <h3 class="instructor-name">Kaylah Grooper</h3>
+                        <p class="instructor-title">Mat &amp; Reformer Pilates Instructor</p>
+                        <p class="instructor-bio">Kaylah Grooper is a certified Mat and Reformer Pilates instructor who completed her training with New York Pilates. After earning her certification, she spent two years teaching in New York City before recently moving to Port Washington. She is excited to join the team and become part of this amazing community!</p>
+                        <p class="instructor-bio">Her classes blend classical Pilates principles with a modern approach to create workouts that are both challenging and enjoyable. She emphasizes proper form, mindful movement, and deep muscle engagement to help clients build strength, improve stability, and move with confidence.</p>
+                        <p class="instructor-bio">Come ready to challenge yourself and find that signature Pilates shake. You will leave feeling stronger, shaky (in the best way), and accomplished.</p>
+                    </div>
+                </div>
+
                 <!-- Instructor 3 -->
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="Teresa Profile pic website.jpeg" alt="Teresa instructor portrait">
+                        <img src="Teresa Profile pic website.jpeg" alt="Teresa Cota instructor portrait">
                     </div>
                     <div class="instructor-info">
-                        <h3 class="instructor-name">Teresa</h3>
+                        <h3 class="instructor-name">Teresa Cota</h3>
                         <p class="instructor-title">Barre, Pilates, Sculpt, and Personal Training Instructor</p>
                         <p class="instructor-bio">Teresa is a seasoned fitness professional with over 15 years of experience in the health and wellness industry. A former NYPD detective turned fitness enthusiast, she brings strength, discipline, and passion into every class she teaches.</p>
                         <p class="instructor-bio">Certified in Barre and experienced across multiple training modalities including Pilates, Sculpt, and personal training, Teresa is known for her dynamic programming style and creative approach to movement. Her classes are thoughtfully designed to challenge the body with deep, effective burns while keeping clients engaged and motivated.</p>
@@ -164,7 +182,7 @@ r
             <div class="section-header">
                 <span class="section-tag">Client Stories</span>
                 <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-subtitle">Real stories from our Modern Fit Pilates community</p>
+                <p class="section-subtitle">Kind words from the people who move with us.</p>
             </div>
 
             <div class="testimonial-carousel">
@@ -488,7 +506,7 @@ r
             <div class="section-header">
                 <span class="section-tag">Our Studio</span>
                 <h2 class="section-title">Studio Gallery</h2>
-                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                <p class="section-subtitle">A glimpse inside the studio and the community we move with.</p>
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item large">
@@ -519,102 +537,102 @@ r
             <div class="section-header">
                 <span class="section-tag">Questions?</span>
                 <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                <p class="section-subtitle">A few helpful details before your first visit.</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
                         <span>What should I wear to class?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="faq-answer" id="faq-answer-1">
+                        <p>Choose comfortable clothing that lets you move freely. For specific studio or class-preparation guidance, send us a message on Instagram before your visit.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
                         <span>Do I need prior experience?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <div class="faq-answer" id="faq-answer-2">
+                        <p>Classes are intentionally kept small so instructors can give individual attention to form and alignment. If you are new to Pilates, reach out before booking and we can help you choose a class.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
                         <span>How do I book a class?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Download the Glofox Health and Fitness app to book your sessions.</p>
+                    <div class="faq-answer" id="faq-answer-3">
+                        <p>Classes are booked through the Glofox Health &amp; Fitness app. You can find class rates and packages in the <a href="#pricing">pricing section</a>.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
                         <span>What is your cancellation policy?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                    <div class="faq-answer" id="faq-answer-4">
+                        <p>Cancellation terms can depend on the class or package booked. Please check the terms shown in the Glofox app when reserving, or message the studio on Instagram if you need help.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
                         <span>Do you offer package deals?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Contact us for information about class packages and membership options.</p>
+                    <div class="faq-answer" id="faq-answer-5">
+                        <p>Yes. Group-class drop-ins and 4-, 8-, and 15-class packages are available. See the <a href="#pricing">current pricing</a>; packages are available in the app.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-6">
                         <span>Is parking available?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Free parking is available at Wheatley Plaza.</p>
+                    <div class="faq-answer" id="faq-answer-6">
+                        <p>The studio is at 340 Wheatley Plaza, Greenvale, NY 11548. Free parking is available at Wheatley Plaza.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-7">
                         <span>Can I bring a friend to try a class?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. We offer trial classes for new clients. Contact us for details.</p>
+                    <div class="faq-answer" id="faq-answer-7">
+                        <p>For current introductory options or bringing a friend, please check the Glofox app or message the studio on Instagram.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-8">
                         <span>What makes Modern Fit Pilates different?</span>
                         <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Our BASI certified instruction combined with nutrition coaching provides a holistic approach to wellness.</p>
+                    <div class="faq-answer" id="faq-answer-8">
+                        <p>Our approach blends classical Pilates principles with athletic, intentional movement. Small classes keep proper form and personalized attention at the center of the experience.</p>
                     </div>
                 </div>
             </div>
@@ -687,7 +705,7 @@ r
                         </div>
                         <h3>Book a Session</h3>
                         <p>Download the Glofox app</p>
-                        <a href="#" class="btn btn-primary btn-small">Health and Fitness</a>
+                        <a href="#faq" class="btn btn-primary btn-small">How to book</a>
                     </div>
 
                     <div class="contact-card">
@@ -698,12 +716,13 @@ r
                         </div>
                         <h3>Follow Us</h3>
                         <p>Stay connected on Instagram</p>
-                        <a href="https://www.instagram.com/modernfitpilates/" target="_blank" class="btn btn-secondary btn-small">@modernfitpilates</a>
+                        <a href="https://www.instagram.com/modernfitpilates/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small">@modernfitpilates</a>
                     </div>
                 </div>
 
                 <div class="contact-map">
                     <iframe 
+                        title="Map to Modern Fit Pilates at 340 Wheatley Plaza, Greenvale, New York"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.2934!2d-73.6299!3d40.8089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2866!2s340%20Wheatley%20Plaza%2C%20Greenvale%2C%20NY%2011548!5e0!3m2!1sen!2sus!4v1234567890"
                         width="100%" 
                         height="450" 
@@ -717,20 +736,23 @@ r
         </div>
     </section>
 
+    </main>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <p class="footer-tagline">Fit Body, Fit Mind</p>
+                    <a href="#home" aria-label="Modern Fit Pilates home"><img src="logo.png" alt="" class="footer-logo"></a>
+                    <p class="footer-tagline">Fit body. Focused mind. A stronger you.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Quick Links</h4>
                         <ul>
                             <li><a href="#home">Home</a></li>
-                            <li><a href="#story">FOUNDER</a></li>
-                            <li><a href="#instructors">Instructors</a></li>
+                            <li><a href="#method">Our method</a></li>
+                            <li><a href="#instructors">Our team</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
@@ -740,7 +762,7 @@ r
                     </div>
                     <div class="footer-column">
                         <h4>Connect</h4>
-                        <a href="https://www.instagram.com/modernfitpilates/" target="_blank" class="footer-social">
+                        <a href="https://www.instagram.com/modernfitpilates/" target="_blank" rel="noopener noreferrer" class="footer-social">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
                             </svg>
